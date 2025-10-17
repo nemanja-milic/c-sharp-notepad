@@ -9,7 +9,6 @@ namespace Notepad
         public Form1()
         {
             InitializeComponent();
-            FileManager = new FileManager(MainRichTextBox);
         }
 
 
@@ -23,7 +22,8 @@ namespace Notepad
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                FileManager.ReadFile(openFileDialog.FileName);
+                FileManager = new FileManager(openFileDialog.FileName);
+                MainRichTextBox.Text = FileManager.ReadFile();
             }
         }
 

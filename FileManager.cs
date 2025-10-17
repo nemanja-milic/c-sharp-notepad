@@ -10,27 +10,33 @@ namespace Notepad
     internal class FileManager
     {
         private string FileText;
-        private RichTextBox MainTextBox;
+        private string FilePath;
 
-        public FileManager(RichTextBox mainTextBox)
+        public FileManager(string filePath)
         {
             FileText = "";
-            MainTextBox = mainTextBox;
+            FilePath = filePath;
         }
-        public void ReadFile(string path)
+        public string ReadFile()
         {
-            if (!File.Exists(path)) MessageBox.Show("File does not exist");
-            using (StreamReader reader = new StreamReader(path))
+            if (!File.Exists(FilePath)) MessageBox.Show("File does not exist");
+            using (StreamReader reader = new StreamReader(FilePath))
             {
                 FileText = reader.ReadToEnd();
-                MainTextBox.Text = FileText;
             }
-            MainTextBox.Text = FileText;
+            return FileText;
         }
 
         public void SaveFile() 
         {
-
+            if (!File.Exists(FilePath))
+            {
+                // show message box and ask user to enter filename
+            }
+            using(StreamWriter writer = new StreamWriter(FilePath))
+            {
+                writer.Write(FileText);
+            }
         }
     }
 }

@@ -23,11 +23,13 @@ namespace Notepad
             using (StreamReader reader = new StreamReader(FilePath))
             {
                 FileText = reader.ReadToEnd();
+                Console.WriteLine(FileText);
+
             }
             return FileText;
         }
 
-        public void SaveFile() 
+        public void SaveFile(string fileText) 
         {
             if (!File.Exists(FilePath))
             {
@@ -35,7 +37,7 @@ namespace Notepad
             }
             using(StreamWriter writer = new StreamWriter(FilePath))
             {
-                writer.Write(FileText);
+                writer.Write(fileText);
             }
         }
     }

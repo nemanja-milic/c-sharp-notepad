@@ -29,7 +29,7 @@ namespace Notepad
 
         private void SaveChanges_Click(object sender, EventArgs e)
         {
-            FileManager.SaveFile();
+            FileManager.SaveFile(MainRichTextBox.Text);
         }
     }
 }

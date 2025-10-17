@@ -28,66 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            richTextBox1 = new RichTextBox();
+            MainRichTextBox = new RichTextBox();
             readFile = new Button();
-            button2 = new Button();
+            SaveChanges = new Button();
             replaceSearchedText = new Button();
             textBox2 = new TextBox();
             SuspendLayout();
             // 
-            // richTextBox1
+            // MainRichTextBox
             // 
-            richTextBox1.Location = new Point(12, 62);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(818, 373);
-            richTextBox1.TabIndex = 0;
-            richTextBox1.Text = "";
+            MainRichTextBox.Location = new Point(10, 46);
+            MainRichTextBox.Margin = new Padding(3, 2, 3, 2);
+            MainRichTextBox.Name = "MainRichTextBox";
+            MainRichTextBox.Size = new Size(716, 281);
+            MainRichTextBox.TabIndex = 0;
+            MainRichTextBox.Text = "";
             // 
             // readFile
             // 
-            readFile.Location = new Point(12, 12);
+            readFile.Location = new Point(10, 9);
+            readFile.Margin = new Padding(3, 2, 3, 2);
             readFile.Name = "readFile";
-            readFile.Size = new Size(94, 29);
+            readFile.Size = new Size(82, 22);
             readFile.TabIndex = 1;
             readFile.Text = "Read file";
             readFile.UseVisualStyleBackColor = true;
             readFile.Click += ReadFile_Click;
             // 
-            // button2
+            // SaveChanges
             // 
-            button2.Location = new Point(736, 12);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 2;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            SaveChanges.Location = new Point(644, 9);
+            SaveChanges.Margin = new Padding(3, 2, 3, 2);
+            SaveChanges.Name = "SaveChanges";
+            SaveChanges.Size = new Size(82, 22);
+            SaveChanges.TabIndex = 2;
+            SaveChanges.Text = "Save ";
+            SaveChanges.UseVisualStyleBackColor = true;
+            SaveChanges.Click += SaveChanges_Click;
             // 
             // replaceSearchedText
             // 
-            replaceSearchedText.Location = new Point(426, 16);
+            replaceSearchedText.Location = new Point(373, 12);
+            replaceSearchedText.Margin = new Padding(3, 2, 3, 2);
             replaceSearchedText.Name = "replaceSearchedText";
-            replaceSearchedText.Size = new Size(163, 29);
+            replaceSearchedText.Size = new Size(143, 22);
             replaceSearchedText.TabIndex = 6;
             replaceSearchedText.Text = "Replace";
             replaceSearchedText.UseVisualStyleBackColor = true;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(219, 17);
+            textBox2.Location = new Point(192, 13);
+            textBox2.Margin = new Padding(3, 2, 3, 2);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(201, 27);
+            textBox2.Size = new Size(176, 23);
             textBox2.TabIndex = 7;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(851, 450);
+            ClientSize = new Size(745, 338);
             Controls.Add(textBox2);
             Controls.Add(replaceSearchedText);
-            Controls.Add(button2);
+            Controls.Add(SaveChanges);
             Controls.Add(readFile);
-            Controls.Add(richTextBox1);
+            Controls.Add(MainRichTextBox);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -96,9 +103,9 @@
 
         #endregion
 
-        private RichTextBox richTextBox1;
+        private RichTextBox MainRichTextBox;
         private Button readFile;
-        private Button button2;
+        private Button SaveChanges;
         private Button replaceSearchedText;
         private TextBox textBox2;
     }

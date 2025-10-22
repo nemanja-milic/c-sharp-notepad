@@ -23,18 +23,13 @@ namespace Notepad
             using (StreamReader reader = new StreamReader(FilePath))
             {
                 FileText = reader.ReadToEnd();
-                Console.WriteLine(FileText);
-
             }
             return FileText;
         }
 
         public void SaveFile(string fileText) 
         {
-            if (!File.Exists(FilePath))
-            {
-                // show message box and ask user to enter filename
-            }
+            
             using(StreamWriter writer = new StreamWriter(FilePath))
             {
                 writer.Write(fileText);

@@ -29,7 +29,22 @@ namespace Notepad
 
         private void SaveChanges_Click(object sender, EventArgs e)
         {
-            FileManager.SaveFile(MainRichTextBox.Text);
+            // replace these code to save
+            if(FileManager != null)
+            {
+                FileManager.SaveFile(MainRichTextBox.Text);
+            }
+            else
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                if(saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    FileManager fileManager = new FileManager(saveFileDialog.FileName);
+                    fileManager.SaveFile(MainRichTextBox.Text);
+                }
+
+            }
         }
     }
 }

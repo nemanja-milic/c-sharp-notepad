@@ -38,12 +38,13 @@ namespace Notepad
             {
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-                if(saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    FileManager fileManager = new FileManager(saveFileDialog.FileName);
-                    fileManager.SaveFile(MainRichTextBox.Text);
+                if (saveFileDialog.ShowDialog() != DialogResult.OK)
+                { 
+                    MessageBox.Show("Error while opening file dialog, please try again");
+                    return;
                 }
-
+                FileManager fileManager = new FileManager(saveFileDialog.FileName);
+                fileManager.SaveFile(MainRichTextBox.Text);
             }
         }
     }

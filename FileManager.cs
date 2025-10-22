@@ -9,18 +9,18 @@ namespace Notepad
 {
     internal class FileManager
     {
-        private string FileText;
-        private string FilePath;
+        public string FileText { get; set; } 
+        public string FilePath { get; set; } 
+        private bool NewFile = true;
 
-        public FileManager(string filePath)
+        public bool isNewFile() { return NewFile; }
+        public void FileOpened() { NewFile = false; }
+
+        public string ReadFile(string filePath)
         {
-            FileText = "";
+            if (!File.Exists(filePath)) MessageBox.Show("File does not exist");
             FilePath = filePath;
-        }
-        public string ReadFile()
-        {
-            if (!File.Exists(FilePath)) MessageBox.Show("File does not exist");
-            using (StreamReader reader = new StreamReader(FilePath))
+            using (StreamReader reader = new StreamReader(filePath))
             {
                 FileText = reader.ReadToEnd();
             }

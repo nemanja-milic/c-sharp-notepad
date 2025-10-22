@@ -9,6 +9,7 @@ namespace Notepad
         public Form1()
         {
             InitializeComponent();
+            FileManager = new FileManager();
         }
 
 
@@ -22,30 +23,26 @@ namespace Notepad
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                FileManager = new FileManager(openFileDialog.FileName);
-                MainRichTextBox.Text = FileManager.ReadFile();
+                FileManager.FileOpened();
+                MainRichTextBox.Text = FileManager.ReadFile(openFileDialog.FileName);
             }
         }
 
         private void SaveChanges_Click(object sender, EventArgs e)
         {
-            // replace these code to save
-            if(FileManager != null)
-            {
-                FileManager.SaveFile(MainRichTextBox.Text);
-            }
-            else
+            if(FileManager.isNewFile())
             {
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
                 if (saveFileDialog.ShowDialog() != DialogResult.OK)
-                { 
+                {
                     MessageBox.Show("Error while opening file dialog, please try again");
                     return;
                 }
-                FileManager fileManager = new FileManager(saveFileDialog.FileName);
-                fileManager.SaveFile(MainRichTextBox.Text);
+                FileManager.FilePath = saveFileDialog.FileName;
+                FileManager.SaveFile(MainRichTextBox.Text);
             }
+            else FileManager.SaveFile(MainRichTextBox.Text);
         }
     }
 }

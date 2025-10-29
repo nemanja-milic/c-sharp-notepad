@@ -28,28 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            MainRichTextBox = new RichTextBox();
+            mainRichTextBox = new RichTextBox();
             readFile = new Button();
             SaveChanges = new Button();
-            replaceSearchedText = new Button();
-            textBox2 = new TextBox();
+            btnReplace = new Button();
+            inputReplace = new TextBox();
+            inputSearch = new TextBox();
+            btnSearch = new Button();
+            btnCancelSearch = new Button();
             SuspendLayout();
             // 
-            // MainRichTextBox
+            // mainRichTextBox
             // 
-            MainRichTextBox.Location = new Point(10, 46);
-            MainRichTextBox.Margin = new Padding(3, 2, 3, 2);
-            MainRichTextBox.Name = "MainRichTextBox";
-            MainRichTextBox.Size = new Size(716, 281);
-            MainRichTextBox.TabIndex = 0;
-            MainRichTextBox.Text = "";
+            mainRichTextBox.Location = new Point(12, 127);
+            mainRichTextBox.Name = "mainRichTextBox";
+            mainRichTextBox.Size = new Size(818, 373);
+            mainRichTextBox.TabIndex = 0;
+            mainRichTextBox.Text = "";
+            mainRichTextBox.KeyDown += openSearch;
             // 
             // readFile
             // 
-            readFile.Location = new Point(10, 9);
-            readFile.Margin = new Padding(3, 2, 3, 2);
+            readFile.Location = new Point(11, 12);
             readFile.Name = "readFile";
-            readFile.Size = new Size(82, 22);
+            readFile.Size = new Size(94, 29);
             readFile.TabIndex = 1;
             readFile.Text = "Read file";
             readFile.UseVisualStyleBackColor = true;
@@ -57,44 +59,71 @@
             // 
             // SaveChanges
             // 
-            SaveChanges.Location = new Point(644, 9);
-            SaveChanges.Margin = new Padding(3, 2, 3, 2);
+            SaveChanges.Location = new Point(736, 12);
             SaveChanges.Name = "SaveChanges";
-            SaveChanges.Size = new Size(82, 22);
+            SaveChanges.Size = new Size(94, 29);
             SaveChanges.TabIndex = 2;
             SaveChanges.Text = "Save ";
             SaveChanges.UseVisualStyleBackColor = true;
             SaveChanges.Click += SaveChanges_Click;
             // 
-            // replaceSearchedText
+            // btnReplace
             // 
-            replaceSearchedText.Location = new Point(373, 12);
-            replaceSearchedText.Margin = new Padding(3, 2, 3, 2);
-            replaceSearchedText.Name = "replaceSearchedText";
-            replaceSearchedText.Size = new Size(143, 22);
-            replaceSearchedText.TabIndex = 6;
-            replaceSearchedText.Text = "Replace";
-            replaceSearchedText.UseVisualStyleBackColor = true;
+            btnReplace.Location = new Point(230, 80);
+            btnReplace.Name = "btnReplace";
+            btnReplace.Size = new Size(163, 29);
+            btnReplace.TabIndex = 6;
+            btnReplace.Text = "Replace";
+            btnReplace.UseVisualStyleBackColor = true;
+            btnReplace.Click += btnReplace_Click;
             // 
-            // textBox2
+            // inputReplace
             // 
-            textBox2.Location = new Point(192, 13);
-            textBox2.Margin = new Padding(3, 2, 3, 2);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(176, 23);
-            textBox2.TabIndex = 7;
+            inputReplace.Location = new Point(12, 82);
+            inputReplace.Name = "inputReplace";
+            inputReplace.Size = new Size(201, 27);
+            inputReplace.TabIndex = 7;
+            // 
+            // inputSearch
+            // 
+            inputSearch.Location = new Point(12, 49);
+            inputSearch.Name = "inputSearch";
+            inputSearch.Size = new Size(201, 27);
+            inputSearch.TabIndex = 8;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(230, 45);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(163, 29);
+            btnSearch.TabIndex = 9;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // btnCancelSearch
+            // 
+            btnCancelSearch.Location = new Point(429, 66);
+            btnCancelSearch.Name = "btnCancelSearch";
+            btnCancelSearch.Size = new Size(163, 29);
+            btnCancelSearch.TabIndex = 10;
+            btnCancelSearch.Text = "Cancel";
+            btnCancelSearch.UseVisualStyleBackColor = true;
+            btnCancelSearch.Click += btnCancelSearch_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(745, 338);
-            Controls.Add(textBox2);
-            Controls.Add(replaceSearchedText);
+            ClientSize = new Size(843, 512);
+            Controls.Add(btnCancelSearch);
+            Controls.Add(btnSearch);
+            Controls.Add(inputSearch);
+            Controls.Add(inputReplace);
+            Controls.Add(btnReplace);
             Controls.Add(SaveChanges);
             Controls.Add(readFile);
-            Controls.Add(MainRichTextBox);
-            Margin = new Padding(3, 2, 3, 2);
+            Controls.Add(mainRichTextBox);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -103,10 +132,13 @@
 
         #endregion
 
-        private RichTextBox MainRichTextBox;
+        private RichTextBox mainRichTextBox;
         private Button readFile;
         private Button SaveChanges;
-        private Button replaceSearchedText;
-        private TextBox textBox2;
+        private Button btnReplace;
+        private TextBox inputReplace;
+        private TextBox inputSearch;
+        private Button btnSearch;
+        private Button btnCancelSearch;
     }
 }
